@@ -1,15 +1,13 @@
-// utils styles
 @import "./utils/var";
+@import "./utils/breakpoints";
 @import "./utils/placeholders";
 @import "./utils/mixins";
-
-// base styles
 @import "./base/base";
 @import "./base/container";
 @import "./base/section";
-
-// components styles
 @import "./components/page-header";
+@import "./components/logo";
+@import "./components/menu";
 @import "./components/hero";
 @import "./components/benefits";
 @import "./components/services";
@@ -19,4 +17,3 @@
 @import "./components/projects";
 @import "./components/page-footer";
 @import "./components/modal";
-

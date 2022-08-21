@@ -5,34 +5,52 @@
         margin-bottom: 30px;
         align-items: center;
         justify-content: center;
+
         background-color: #f5f4fa;
         border-radius: 4px;
     }
 
-
     &__list {
-        display: flex;
         margin: 0;
         padding: 0;
         list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @media screen and (min-width: $tablet) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
     }
+
 
     &__item {
-        width: 270px;
-    }
+        @media screen and (min-width: $tablet) {
+            margin: 0;
+            flex-basis: 354px;
+        }
 
-    &__item+&__item {
-        margin-left: 30px;
+        @media screen and (min-width: $desktop) {
+            flex-basis: 270px;
+        }
     }
 
     &__title {
         margin: 0;
         margin-bottom: 10px;
+        text-align: center;
+
         color: var(--title-color);
         font-style: normal;
         font-size: 14px;
         line-height: 1.14;
         text-transform: uppercase;
+
+        @media screen and (min-width: $tablet) {
+            text-align: left;
+        }
     }
 
     &__description {

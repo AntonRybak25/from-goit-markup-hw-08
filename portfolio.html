@@ -25,45 +25,86 @@
     <!--Header section-->
     <header class="header">
       <div class="container container--flex">
-        <nav class="main-nav">
-          <a class="logo main-nav__logo" href="./index.html"
-            >Web<span class="logo__part--black">Studio</span></a
+        <a class="logo main-nav__logo" href="./index.html"
+          >Web<span class="logo__part--black">Studio</span></a
+        >
+
+        <button
+          type="button"
+          class="menu-button"
+          aria-expanded="false"
+          aria-controls="menu-container"
+          data-menu-button
+        >
+          <svg
+            class="menu-button__icon"
+            width="40"
+            height="40"
+            aria-label="Переключатель мобильного меню"
           >
-          <ul class="main-nav__list">
-            <li class="main-nav__item">
-              <a class="main-nav__link" href="./index.html">Студия</a>
-            </li>
-            <li class="main-nav__item">
-              <a
-                class="main-nav__link main-nav__link--highlighted"
-                href="./portfolio.html"
-                >Портфолио</a
+            <use
+              class="icon-menu-close"
+              href="./images/icons.svg#icon-menu-close"
+            ></use>
+            <use
+              class="icon-menu-open"
+              href="./images/icons.svg#icon-menu-open"
+            ></use>
+          </svg>
+        </button>
+        <!-- Навигация -->
+        <div class="menu-container" id="menu-container" data-menu>
+          <nav class="main-nav">
+            <ul class="main-nav__list">
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="./index.html">Студия</a>
+              </li>
+              <li class="main-nav__item">
+                <a
+                  class="main-nav__link main-nav__link--highlighted"
+                  href="./portfolio.html"
+                  >Портфолио</a
+                >
+              </li>
+              <li class="main-nav__item">
+                <a class="main-nav__link" href="">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- Контакты -->
+          <ul class="contacts">
+            <li class="contacts__item">
+              <a class="contacts__link" href="tel:+380961111111">
+                <svg class="contacts__icon" width="10" height="16">
+                  <use href="./images/icons.svg#icon-smartphone"></use>
+                </svg>
+                +38 096 111 11 11</a
               >
             </li>
-            <li class="main-nav__item">
-              <a class="main-nav__link" href="">Контакты</a>
+            <li class="contacts__item">
+              <a class="contacts__link" href="mailto:info@devstudio.com">
+                <svg class="contacts__icon" width="16" height="12">
+                  <use href="./images/icons.svg#icon-envelope"></use>
+                </svg>
+                info@devstudio.com</a
+              >
             </li>
           </ul>
-        </nav>
-        <!-- Контакты -->
-        <ul class="contacts">
-          <li class="contacts__item">
-            <a class="contacts__link" href="mailto:info@devstudio.com">
-              <svg class="contacts__icon" width="16" height="12">
-                <use href="./images/icons.svg#icon-envelope-hover"></use>
-              </svg>
-              info@devstudio.com</a
-            >
-          </li>
-          <li class="contacts__item">
-            <a class="contacts__link" href="tel:+380961111111">
-              <svg class="contacts__icon" width="10" height="16">
-                <use href="./images/icons.svg#icon-Vector"></use>
-              </svg>
-              +38 096 111 11 11</a
-            >
-          </li>
-        </ul>
+          <ul class="list social-list header__social-list">
+            <li class="header-social__item" lang="en">
+              <a class="header-social__link" href="">Instagram</a>
+            </li>
+            <li class="header-social__item" lang="en">
+              <a class="header-social__link" href="">Twitter</a>
+            </li>
+            <li class="header-social__item" lang="en">
+              <a class="header-social__link" href="">Facebook</a>
+            </li>
+            <li class="header-social__item" lang="en">
+              <a class="header-social__link" href="">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
     <!-- Main -->
@@ -74,6 +115,8 @@
           <h1 class="section__title section__title--visually-hidden">
             Проекты
           </h1>
+
+          <!-- Фильтр  -->
           <ul class="filter">
             <li class="filter__item">
               <button class="button filter__button" type="button">Все</button>
@@ -105,12 +148,37 @@
             <li class="projects__item">
               <a class="projects__link" href="">
                 <div class="thumb-wrap">
-                  <img
-                    class="projects__pic projects__pic--no-gap"
-                    src="./images/techno.jpg"
-                    alt="Макет сайта Технокряк"
-                    width="370"
-                  />
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/project-01@1x-lg.jpg 1x,
+                        ./images/project-01@2x-lg.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/project-01@1x-md.jpg 1x,
+                        ./images/project-01@2x-md.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/project-01@1x-sm.jpg 1x,
+                        ./images/project-01@2x-sm.jpg 2x
+                      "
+                    />
+                    <img
+                      class="projects__pic projects__pic--no-gap"
+                      src="./images/techno.jpg"
+                      alt="Макет сайта Технокряк"
+                    />
+                  </picture>
+
                   <p class="projects__details">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -124,14 +192,39 @@
               </a>
             </li>
             <li class="projects__item">
-              <a class="projects__link" href=""
-                ><div class="thumb-wrap">
-                  <img
-                    class="projects__pic projects__pic--no-gap"
-                    src="./images/New Orlean.jpg"
-                    alt="Постер"
-                    width="370"
-                  />
+              <a class="projects__link" href="">
+                <div class="thumb-wrap">
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/project-02@1x-lg.jpg 1x,
+                        ./images/project-02@2x-lg.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/project-02@1x-md.jpg 1x,
+                        ./images/project-02@2x-md.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/project-02@1x-sm.jpg 1x,
+                        ./images/project-02@2x-sm.jpg 2x
+                      "
+                    />
+                    <img
+                      class="projects__pic projects__pic--no-gap"
+                      src="./images/new-orlean-vs-glden-star.jpg"
+                      alt="Постер"
+                    />
+                  </picture>
+
                   <p class="projects__details">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -143,18 +236,43 @@
                     Постер New Orlean vs Golden Star
                   </h2>
                   <span class="projects__type">Дизайн</span>
-                </div></a
-              >
+                </div>
+              </a>
             </li>
             <li class="projects__item">
-              <a class="projects__link" href=""
-                ><div class="thumb-wrap">
-                  <img
-                    class="projects__pic projects__pic--no-gap"
-                    src="./images/restaraunt.jpg"
-                    alt="Логотип ресторана Seafood "
-                    width="370"
-                  />
+              <a class="projects__link" href="">
+                <div class="thumb-wrap">
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/project-03@1x-lg.jpg 1x,
+                        ./images/project-03@2x-lg.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/project-03@1x-md.jpg 1x,
+                        ./images/project-03@2x-md.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/project-03@1x-sm.jpg 1x,
+                        ./images/project-03@2x-sm.jpg 2x
+                      "
+                    />
+                    <img
+                      class="projects__pic projects__pic--no-gap"
+                      src="./images/seafood-restaraunt.jpg"
+                      alt="Логотип ресторана Seafood "
+                    />
+                  </picture>
+
                   <p class="projects__details">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -164,18 +282,43 @@
                 <div class="projects__desc">
                   <h2 class="projects__name">Ресторан Seafood</h2>
                   <span class="projects__type">Приложение</span>
-                </div></a
-              >
+                </div>
+              </a>
             </li>
             <li class="projects__item">
-              <a class="projects__link" href=""
-                ><div class="thumb-wrap">
-                  <img
-                    class="projects__pic projects__pic--no-gap"
-                    src="./images/Prime.jpg"
-                    alt="Логотип Prime"
-                    width="370"
-                  />
+              <a class="projects__link" href="">
+                <div class="thumb-wrap">
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/project-04@1x-lg.jpg 1x,
+                        ./images/project-04@2x-lg.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/project-04@1x-md.jpg 1x,
+                        ./images/project-04@2x-md.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/project-04@1x-sm.jpg 1x,
+                        ./images/project-04@2x-sm.jpg 2x
+                      "
+                    />
+                    <img
+                      class="projects__pic projects__pic--no-gap"
+                      src="./images/prime-project.jpg"
+                      alt="Логотип Prime"
+                    />
+                  </picture>
+
                   <p class="projects__details">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -185,18 +328,43 @@
                 <div class="projects__desc">
                   <h2 class="projects__name">Проект Prime</h2>
                   <span class="projects__type">Маркетинг</span>
-                </div></a
-              >
+                </div>
+              </a>
             </li>
             <li class="projects__item">
-              <a class="projects__link" href=""
-                ><div class="thumb-wrap">
-                  <img
-                    class="projects__pic projects__pic--no-gap"
-                    src="./images/Boxes.jpg"
-                    alt="Логотип Boxes"
-                    width="370"
-                  />
+              <a class="projects__link" href="">
+                <div class="thumb-wrap">
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/project-05@1x-lg.jpg 1x,
+                        ./images/project-05@2x-lg.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/project-05@1x-md.jpg 1x,
+                        ./images/project-05@2x-md.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/project-05@1x-sm.jpg 1x,
+                        ./images/project-05@2x-sm.jpg 2x
+                      "
+                    />
+                    <img
+                      class="projects__pic projects__pic--no-gap"
+                      src="./images/boxes-project.jpg"
+                      alt="Логотип Boxes"
+                    />
+                  </picture>
+
                   <p class="projects__details">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -206,18 +374,43 @@
                 <div class="projects__desc">
                   <h2 class="projects__name">Проект Boxes</h2>
                   <span class="projects__type">Приложение</span>
-                </div></a
-              >
+                </div>
+              </a>
             </li>
             <li class="projects__item">
-              <a class="projects__link" href=""
-                ><div class="thumb-wrap">
-                  <img
-                    class="projects__pic projects__pic--no-gap"
-                    src="./images/Inspiration.jpg"
-                    alt="Макет сайта Inspiration has no Borders"
-                    width="370"
-                  />
+              <a class="projects__link" href="">
+                <div class="thumb-wrap">
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/project-06@1x-lg.jpg 1x,
+                        ./images/project-06@2x-lg.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/project-06@1x-md.jpg 1x,
+                        ./images/project-06@2x-md.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/project-06@1x-sm.jpg 1x,
+                        ./images/project-06@2x-sm.jpg 2x
+                      "
+                    />
+                    <img
+                      class="projects__pic projects__pic--no-gap"
+                      src="./images/inspiration-no-borders.jpg"
+                      alt="Макет сайта Inspiration has no Borders"
+                    />
+                  </picture>
+
                   <p class="projects__details">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -227,18 +420,43 @@
                 <div class="projects__desc">
                   <h2 class="projects__name">Inspiration has no Borders</h2>
                   <span class="projects__type">Веб-сайт</span>
-                </div></a
-              >
+                </div>
+              </a>
             </li>
             <li class="projects__item">
-              <a class="projects__link" href=""
-                ><div class="thumb-wrap">
-                  <img
-                    class="projects__pic projects__pic--no-gap"
-                    src="./images/publication.jpg"
-                    alt="Журнал издания Limited Edition"
-                    width="370"
-                  />
+              <a class="projects__link" href="">
+                <div class="thumb-wrap">
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/project-07@1x-lg.jpg 1x,
+                        ./images/project-07@2x-lg.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/project-07@1x-md.jpg 1x,
+                        ./images/project-07@2x-md.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/project-07@1x-sm.jpg 1x,
+                        ./images/project-07@2x-sm.jpg 2x
+                      "
+                    />
+                    <img
+                      class="projects__pic projects__pic--no-gap"
+                      src="./images/publication-limited-edition.jpg"
+                      alt="Журнал издания Limited Edition"
+                    />
+                  </picture>
+
                   <p class="projects__details">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -248,18 +466,43 @@
                 <div class="projects__desc">
                   <h2 class="projects__name">Издание Limited Edition</h2>
                   <span class="projects__type">Дизайн</span>
-                </div></a
-              >
+                </div>
+              </a>
             </li>
             <li class="projects__item">
-              <a class="projects__link" href=""
-                ><div class="thumb-wrap">
-                  <img
-                    class="projects__pic projects__pic--no-gap"
-                    src="./images/Lab.jpg"
-                    alt="Продукт LAB "
-                    width="370"
-                  />
+              <a class="projects__link" href="">
+                <div class="thumb-wrap">
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/project-08@1x-lg.jpg 1x,
+                        ./images/project-08@2x-lg.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/project-08@1x-md.jpg 1x,
+                        ./images/project-08@2x-md.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/project-08@1x-sm.jpg 1x,
+                        ./images/project-08@2x-sm.jpg 2x
+                      "
+                    />
+                    <img
+                      class="projects__pic projects__pic--no-gap"
+                      src="./images/lab-project.jpg"
+                      alt="Продукт LAB "
+                    />
+                  </picture>
+
                   <p class="projects__details">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -269,18 +512,43 @@
                 <div class="projects__desc">
                   <h2 class="projects__name">Проект LAB</h2>
                   <span class="projects__type">Маркетинг</span>
-                </div></a
-              >
+                </div>
+              </a>
             </li>
             <li class="projects__item">
-              <a class="projects__link" href=""
-                ><div class="thumb-wrap">
-                  <img
-                    class="projects__pic projects__pic--no-gap"
-                    src="./images/Growing.jpg"
-                    alt="Макет сайта Growing Business "
-                    width="370"
-                  />
+              <a class="projects__link" href="">
+                <div class="thumb-wrap">
+                  <picture>
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/project-09@1x-lg.jpg 1x,
+                        ./images/project-09@2x-lg.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/project-09@1x-md.jpg 1x,
+                        ./images/project-09@2x-md.jpg 2x
+                      "
+                    />
+
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/project-09@1x-sm.jpg 1x,
+                        ./images/project-09@2x-sm.jpg 2x
+                      "
+                    />
+                    <img
+                      class="projects__pic projects__pic--no-gap"
+                      src="./images/growing-business.jpg"
+                      alt="Макет сайта Growing Business "
+                    />
+                  </picture>
+
                   <p class="projects__details">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -290,8 +558,8 @@
                 <div class="projects__desc">
                   <h2 class="projects__name">Growing Business</h2>
                   <span class="projects__type">Приложение</span>
-                </div></a
-              >
+                </div>
+              </a>
             </li>
           </ul>
         </div>
@@ -395,6 +663,8 @@
         </div>
       </div>
     </footer>
+
+    <script src="./mobale-menu.js"></script>
     <script src="./subscription.js"></script>
   </body>
 </html>
